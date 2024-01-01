@@ -9,7 +9,7 @@ import { infoPagina } from '../interfaces/info.interfaces';
 export class InfoPaginaService {
 
   info: infoPagina = {};
-  cargada: boolean = false;
+  cargada: boolean = true;
   equipo: any = [];
 
   constructor(private http: HttpClient) {
@@ -20,16 +20,15 @@ export class InfoPaginaService {
   private cargarInfo() {
     /* Leer el archivo JSON */
     this.http.get('assets/data/data.json').subscribe((res: infoPagina) => {
-      console.log(res);
-      this.cargada = true;
+      this.cargada = false;
       this.info = res;
     });
   }
   
   private cargarEquipo() {
     this.http.get('https://portafolio-8e3e1-default-rtdb.firebaseio.com/equipo.json').subscribe((res: any) => {
-      console.log(res);
       this.equipo = res;
+      this.cargada = false;
     });
 
   }
