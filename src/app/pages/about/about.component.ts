@@ -7,7 +7,15 @@ import { InfoPaginaService } from '../../services/info-pagina.service';
   styleUrl: './about.component.css'
 })
 export class AboutComponent {
+  
+  urkuSearch:any = '';
+  
   constructor(public meta: InfoPaginaService) {
     
+  }
+
+  ngOnInit() {
+    this.urkuSearch = document.querySelector('#urku-search');
+    this.urkuSearch.value = '';
   }
 }

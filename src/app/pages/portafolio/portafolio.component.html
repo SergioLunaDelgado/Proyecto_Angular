@@ -20,7 +20,7 @@
     </div>
 
     <div class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4" *ngIf="!productos.cargando">
-        <a *ngFor="let producto of productos.productos" routerLink="item"
+        <a *ngFor="let producto of productos.productos" [routerLink]="['item', producto.cod]"
             class="rk-item ae-masonry__item animated fadeIn"><img src="assets/productos/{{ producto.url }}.jpg" alt="">
             <div class="item-meta">
                 <h2>{{ producto.titulo }}</h2>

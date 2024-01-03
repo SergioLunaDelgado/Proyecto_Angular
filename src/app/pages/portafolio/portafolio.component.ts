@@ -7,7 +7,13 @@ import { ProductosService } from '../../services/productos.service';
   styleUrl: './portafolio.component.css'
 })
 export class PortafolioComponent {
+  urkuSearch:any = '';
+  
   constructor (public productos: ProductosService ) {
-    
+  }
+
+  ngOnInit() {
+    this.urkuSearch = document.querySelector('#urku-search');
+    this.urkuSearch.value = '';
   }
 }
